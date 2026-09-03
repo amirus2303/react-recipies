@@ -1,0 +1,11 @@
+export {default as Loader} from "./Loader.jsx";
+export {default as Header} from "./Home/Header.jsx";
+export {default as Hero} from "./Home/Hero.jsx";
+export {default as AnimatedHeading} from "./Home/AnimatedHeading.jsx";
+export {default as RecipiesList} from "./Home/RecipiesList.jsx";
+export {default as CtaBanner} from "./Home/CtaBanner.jsx";
+export {default as AsianRecipes} from "./Home/AsianRecipes.jsx";    
+export {default as Map} from "./Home/Map.jsx";    
+export {default as Video} from "./Home/Video.jsx";  
+export {default as Gallery} from "./Home/Gallery.jsx";  
+export {default as Footer} from "./Footer.jsx";  
