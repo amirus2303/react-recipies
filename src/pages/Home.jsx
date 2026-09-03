@@ -9,14 +9,11 @@ import {
     Video,
     Gallery,
     Footer,
-    Loader
 } from "../components";
-
 
 const Home = () => {
     return (
         <>
-            <Loader />
             <Header />
             <Hero />
             <AnimatedHeading />

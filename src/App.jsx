@@ -1,11 +1,12 @@
 import { useEffect } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { Home, RecipiesListPage, RecipePage } from "./pages/index.js";
+import { Home, RecipiesListPage, RecipePage, Contact } from "./pages/index.js";
 
 const router = createBrowserRouter([
     { path: "/", element: <Home /> },
     { path: "/recipies", element: <RecipiesListPage /> },
     { path: "/recipies/:id", element: <RecipePage /> },
+    { path: "/contact", element: <Contact /> },
 ]);
 
 const App = () => {
