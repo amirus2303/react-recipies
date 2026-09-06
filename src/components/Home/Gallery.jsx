@@ -1,4 +1,25 @@
+import * as Slick from "react-slick";
+
+const Slider = Slick.default.default;
+
 const Gallery = () => {
+    const settings = {
+        dots: false,
+        arrows: false,
+        infinite: true,
+        speed: 800,
+        autoplay: true,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        prevArrow: '<div class="prev"><i class="far fa-arrow-left"></i></div>',
+        nextArrow: '<div class="next"><i class="far fa-arrow-right"></i></div>',
+        responsive: [
+            { breakpoint: 1024, settings: { slidesToShow: 3 } },
+            { breakpoint: 767, settings: { slidesToShow: 2 } },
+            { breakpoint: 575, settings: { slidesToShow: 1 } },
+        ],
+    };
+    
     return (
         <>
             <section className="gallery-section">
@@ -36,7 +57,7 @@ const Gallery = () => {
                             </div>
                         </div>
                         <div className="gallery-slider-wrapper wow fadeInDown">
-                            <div className="gallery-slider-two">
+                            <Slider {...settings}>
                                 <div className="gallery-item style-four">
                                     <div className="gallery-img">
                                         <img
@@ -69,7 +90,7 @@ const Gallery = () => {
                                         />
                                     </div>
                                 </div>
-                            </div>
+                            </Slider>
                         </div>
                     </div>
                 </div>

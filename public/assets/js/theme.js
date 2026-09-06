@@ -30,6 +30,25 @@ Version: 1.0
 (function ($) {
     "use strict";
 
+    // Debug logging control — set `window.FOODIX_DEBUG = true` in the console to enable
+    var FD_DEBUG = !!(window && window.FOODIX_DEBUG);
+    function fdLog() {
+        if (!FD_DEBUG) return;
+        try {
+            console.log.apply(console, arguments);
+        } catch (e) {
+            console.log(arguments);
+        }
+    }
+    function fdError() {
+        if (!FD_DEBUG) return;
+        try {
+            console.error.apply(console, arguments);
+        } catch (e) {
+            console.error(arguments);
+        }
+    }
+
     //===== Main Menu
     function mainMenu() {
         // Variables
@@ -43,7 +62,7 @@ Version: 1.0
         // navbar toggler
 
         navbarToggler.on("click", function () {
-            console.log("navbarToggler clicked");
+            fdLog("navbarToggler clicked");
             navbarToggler.toggleClass("active");
             navMenu.toggleClass("menu-on");
         });
@@ -220,8 +239,17 @@ Version: 1.0
     window.initFoodixSliders = function () {
         function initSlick(selector, options) {
             var $el = $(selector);
+            fdLog('initSlick()', selector, { found: $el.length, hasSlick: !!($.fn && $.fn.slick), children: $el.children().length });
+            if (!($ && $.fn && $.fn.slick)) {
+                fdError('Slick plugin is not available (jQuery.fn.slick is undefined)');
+                return;
+            }
             if ($el.length && !$el.hasClass("slick-initialized") && $el.children().length) {
-                $el.slick(options);
+                try {
+                    $el.slick(options);
+                } catch (e) {
+                    fdError('Error initializing slick for', selector, e);
+                }
             }
         }
 
@@ -311,23 +339,7 @@ Version: 1.0
             ],
         });
 
-        initSlick(".gallery-slider-two", {
-            dots: false,
-            arrows: false,
-            infinite: true,
-            speed: 800,
-            autoplay: true,
-            slidesToShow: 3,
-            slidesToScroll: 1,
-            prevArrow: '<div class="prev"><i class="far fa-arrow-left"></i></div>',
-            nextArrow: '<div class="next"><i class="far fa-arrow-right"></i></div>',
-            responsive: [
-                { breakpoint: 1024, settings: { slidesToShow: 3 } },
-                { breakpoint: 767, settings: { slidesToShow: 2 } },
-                { breakpoint: 575, settings: { slidesToShow: 1 } },
-            ],
-        });
-
+        
         initSlick(".instagram-slider-one", {
             dots: false,
             arrows: false,
