@@ -1,3 +1,5 @@
+import { NavLink } from "react-router-dom";
+
 const RecipeRoundedItem = ({ recipe }) => {
     const { name, image, rating, tags } = recipe || {};
     return (
@@ -18,7 +20,7 @@ const RecipeRoundedItem = ({ recipe }) => {
                 </div>
                 <div className="menu-info">
                     <h3 className="title">
-                        <a href="menu-details.html">{name}</a>
+                        <NavLink to={`/recipies/${recipe.id || ''}`} onClick={() => window.scrollTo(0, 0)}>{name}</NavLink>
                     </h3>
                     <p>
                         {tags?.map((tag, index) => (

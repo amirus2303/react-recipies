@@ -17,7 +17,7 @@ import customFetch from "../utils/CustomFetch";
 
 export const loader = async () => {
     const bestRatedRecipes = await customFetch.get("/?sortBy=rating&order=desc&limit=6");
-    const indianRecipes = await customFetch.get("/tag/Indian?limit=6");
+    const indianRecipes = await customFetch.get("/tag/Asian?limit=6");
     return {
         bestRatedRecipes: bestRatedRecipes.data,
         indianRecipes: indianRecipes.data
