@@ -1,3 +1,4 @@
+export {default as MenuOverlay} from "./MenuOverlay.jsx";
 export {default as Header} from "./Home/Header.jsx";
 export {default as Hero} from "./Home/Hero.jsx";
 export {default as AnimatedHeading} from "./Home/AnimatedHeading.jsx";

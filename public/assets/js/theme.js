@@ -43,6 +43,7 @@ Version: 1.0
         // navbar toggler
 
         navbarToggler.on("click", function () {
+            console.log("navbarToggler clicked");
             navbarToggler.toggleClass("active");
             navMenu.toggleClass("menu-on");
         });
@@ -57,7 +58,7 @@ Version: 1.0
         // adds toggle button to li items that have children
 
         navMenu.find("li a").each(function () {
-            if ($(this).children(".dd-trigger").length < 1) {
+            if ($(this).children(".dd-trigger").length < 1) { 
                 if ($(this).next().length > 0) {
                     $(this).append(
                         '<span class="dd-trigger"><i class="far fa-angle-down"></i></span>',

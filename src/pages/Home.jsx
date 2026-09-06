@@ -1,4 +1,5 @@
 import {
+    MenuOverlay,
     AnimatedHeading,
     Header,
     Hero,
@@ -9,11 +10,14 @@ import {
     Video,
     Gallery,
     Footer,
+
 } from "../components";
+
 
 const Home = () => {
     return (
         <>
+            <MenuOverlay />
             <Header />
             <Hero />
             <AnimatedHeading />
