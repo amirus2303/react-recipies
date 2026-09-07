@@ -1,8 +1,11 @@
-import * as Slick from "react-slick";
+import { useLoaderData } from "react-router-dom";
 
+import * as Slick from "react-slick";
 const Slider = Slick.default.default;
 
 const Gallery = () => {
+    const { galleryImages } = useLoaderData();
+    const { recipes } = galleryImages || {};
     const settings = {
         dots: false,
         arrows: false,
@@ -19,7 +22,7 @@ const Gallery = () => {
             { breakpoint: 575, settings: { slidesToShow: 1 } },
         ],
     };
-    
+
     return (
         <>
             <section className="gallery-section">
@@ -34,13 +37,14 @@ const Gallery = () => {
                             <div className="col-lg-7">
                                 <div className="section-title section-title-left mb-50 wow fadeInLeft">
                                     <span className="sub-title">
-                                        Explore Gallery
+                                        Plaisir des yeux
                                     </span>
-                                    <h2>Our Gallery</h2>
+                                    <h2>Notre galerie</h2>
                                     <p>
-                                        Explore 'Our Gallery'—a visual symphony
-                                        of delectable pizzas. Feast your eyes on
-                                        our culinary creations, each image.
+                                        Plongez dans notre univers à travers une
+                                        sélection de photos qui mettent en
+                                        valeur nos plats, notre savoir-faire et
+                                        chaque détail qui fait la différence.
                                     </p>
                                 </div>
                             </div>
@@ -58,38 +62,16 @@ const Gallery = () => {
                         </div>
                         <div className="gallery-slider-wrapper wow fadeInDown">
                             <Slider {...settings}>
-                                <div className="gallery-item style-four">
-                                    <div className="gallery-img">
-                                        <img
-                                            src="assets/images/gallery/gallery-11.jpg"
-                                            alt="Gallery image"
-                                        />
+                                {recipes.map((recipe) => (
+                                    <div className="gallery-item style-four">
+                                        <div className="gallery-img">
+                                            <img
+                                                src={recipe.image}
+                                                alt={recipe.name}
+                                            />
+                                        </div>
                                     </div>
-                                </div>
-                                <div className="gallery-item style-four">
-                                    <div className="gallery-img">
-                                        <img
-                                            src="assets/images/gallery/gallery-12.jpg"
-                                            alt="Gallery image"
-                                        />
-                                    </div>
-                                </div>
-                                <div className="gallery-item style-four">
-                                    <div className="gallery-img">
-                                        <img
-                                            src="assets/images/gallery/gallery-13.jpg"
-                                            alt="Gallery image"
-                                        />
-                                    </div>
-                                </div>
-                                <div className="gallery-item style-four">
-                                    <div className="gallery-img">
-                                        <img
-                                            src="assets/images/gallery/gallery-12.jpg"
-                                            alt="Gallery image"
-                                        />
-                                    </div>
-                                </div>
+                                ))}
                             </Slider>
                         </div>
                     </div>

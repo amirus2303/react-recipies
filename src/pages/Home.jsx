@@ -19,9 +19,11 @@ import customFetch from "../utils/CustomFetch";
 export const loader = async () => {
     const bestRatedRecipes = await customFetch.get("/?sortBy=rating&order=desc&limit=6");
     const indianRecipes = await customFetch.get("/tag/Asian?limit=6");
+    const galleryImages = await customFetch.get("/?limit=10&select=image, name");
     return {
         bestRatedRecipes: bestRatedRecipes.data,
-        indianRecipes: indianRecipes.data
+        indianRecipes: indianRecipes.data,
+        galleryImages: galleryImages.data
     };
 };
 

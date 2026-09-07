@@ -8,7 +8,6 @@ import RecipeRoundedItem from "./RecipeRoundedItem";
 const RecipiesList = () => {
     const { bestRatedRecipes } = useLoaderData();
     const{ recipes } = bestRatedRecipes || {};
-    console.log("recipies", bestRatedRecipes);
     return (
         <section className="menu-section pt-90 pb-90">
             <div className="container">
