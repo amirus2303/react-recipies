@@ -52,15 +52,16 @@ const Hero = () => {
                                     className="wow fadeInDown"
                                     data-wow-delay=".5s"
                                 >
-                                    Cheese Delight Pizza
+                                    Recettes sans pareil
                                 </h1>
                                 <p
                                     className="wow fadeInDown"
                                     data-wow-delay=".6s"
                                 >
-                                    Savor the perfection of our Italian Cheese
-                                    Pizza—crispy golden crust, premium
-                                    mozzarella, Parmesan, and ricotta...
+                                    Laissez-vous tenter par des recettes sans
+                                    pareil, savoureuses et généreuses, préparées
+                                    pour faire de chaque repas un véritable
+                                    moment de plaisir.
                                 </p>
                                 <div
                                     className="hero-button wow fadeInDown"
@@ -70,7 +71,7 @@ const Hero = () => {
                                         href="index-2.html"
                                         className="theme-btn style-one"
                                     >
-                                        Order Now
+                                        Contact
                                     </a>
                                 </div>
                             </div>

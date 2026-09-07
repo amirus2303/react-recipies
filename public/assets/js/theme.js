@@ -29,26 +29,6 @@ Version: 1.0
 
 (function ($) {
     "use strict";
-
-    // Debug logging control — set `window.FOODIX_DEBUG = true` in the console to enable
-    var FD_DEBUG = !!(window && window.FOODIX_DEBUG);
-    function fdLog() {
-        if (!FD_DEBUG) return;
-        try {
-            console.log.apply(console, arguments);
-        } catch (e) {
-            console.log(arguments);
-        }
-    }
-    function fdError() {
-        if (!FD_DEBUG) return;
-        try {
-            console.error.apply(console, arguments);
-        } catch (e) {
-            console.error(arguments);
-        }
-    }
-
     //===== Main Menu
     function mainMenu() {
         // Variables
@@ -62,7 +42,6 @@ Version: 1.0
         // navbar toggler
 
         navbarToggler.on("click", function () {
-            fdLog("navbarToggler clicked");
             navbarToggler.toggleClass("active");
             navMenu.toggleClass("menu-on");
         });
@@ -236,151 +215,6 @@ Version: 1.0
     }
 
 
-    window.initFoodixSliders = function () {
-        function initSlick(selector, options) {
-            var $el = $(selector);
-            fdLog('initSlick()', selector, { found: $el.length, hasSlick: !!($.fn && $.fn.slick), children: $el.children().length });
-            if (!($ && $.fn && $.fn.slick)) {
-                fdError('Slick plugin is not available (jQuery.fn.slick is undefined)');
-                return;
-            }
-            if ($el.length && !$el.hasClass("slick-initialized") && $el.children().length) {
-                try {
-                    $el.slick(options);
-                } catch (e) {
-                    fdError('Error initializing slick for', selector, e);
-                }
-            }
-        }
-
-        initSlick(".testimonial-slider-one", {
-            dots: true,
-            arrows: false,
-            infinite: true,
-            speed: 800,
-            autoplay: true,
-            slidesToShow: 3,
-            slidesToScroll: 1,
-            prevArrow: '<div class="prev"><i class="far fa-arrow-left"></i></div>',
-            nextArrow: '<div class="next"><i class="far fa-arrow-right"></i></div>',
-            responsive: [
-                {
-                    breakpoint: 1200,
-                    settings: { slidesToShow: 2 },
-                },
-                { breakpoint: 767, settings: { slidesToShow: 1 } },
-            ],
-        });
-
-        initSlick(".testimonial-slider-two", {
-            dots: true,
-            arrows: false,
-            infinite: true,
-            speed: 800,
-            autoplay: true,
-            slidesToShow: 2,
-            slidesToScroll: 1,
-            prevArrow: '<div class="prev"><i class="far fa-arrow-left"></i></div>',
-            nextArrow: '<div class="next"><i class="far fa-arrow-right"></i></div>',
-            responsive: [
-                { breakpoint: 1024, settings: { slidesToShow: 2 } },
-                { breakpoint: 767, settings: { slidesToShow: 1 } },
-            ],
-        });
-
-        initSlick(".testimonial-slider-three", {
-            dots: false,
-            arrows: false,
-            infinite: true,
-            speed: 800,
-            autoplay: true,
-            slidesToShow: 4,
-            slidesToScroll: 1,
-            prevArrow: '<div class="prev"><i class="far fa-arrow-left"></i></div>',
-            nextArrow: '<div class="next"><i class="far fa-arrow-right"></i></div>',
-            responsive: [
-                { breakpoint: 1200, settings: { slidesToShow: 3 } },
-                { breakpoint: 991, settings: { slidesToShow: 2 } },
-                { breakpoint: 575, settings: { slidesToShow: 1 } },
-            ],
-        });
-
-        initSlick(".special-off-slider", {
-            dots: false,
-            arrows: false,
-            infinite: true,
-            speed: 800,
-            autoplay: true,
-            slidesToShow: 3,
-            slidesToScroll: 1,
-            prevArrow: '<div class="prev"><span><i class="far fa-arrow-left"></i></span></div>',
-            nextArrow: '<div class="next"><span><i class="far fa-arrow-right"></i></span></div>',
-            responsive: [
-                { breakpoint: 1200, settings: { slidesToShow: 2 } },
-                { breakpoint: 767, settings: { slidesToShow: 1 } },
-            ],
-        });
-
-        initSlick(".gallery-slider-one", {
-            dots: false,
-            arrows: false,
-            infinite: true,
-            speed: 800,
-            autoplay: true,
-            slidesToShow: 5,
-            slidesToScroll: 1,
-            prevArrow: '<div class="prev"><i class="far fa-arrow-left"></i></div>',
-            nextArrow: '<div class="next"><i class="far fa-arrow-right"></i></div>',
-            responsive: [
-                { breakpoint: 1200, settings: { slidesToShow: 3 } },
-                { breakpoint: 1024, settings: { slidesToShow: 3 } },
-                { breakpoint: 767, settings: { slidesToShow: 2 } },
-                { breakpoint: 575, settings: { slidesToShow: 1 } },
-            ],
-        });
-
-        
-        initSlick(".instagram-slider-one", {
-            dots: false,
-            arrows: false,
-            infinite: true,
-            speed: 800,
-            autoplay: true,
-            slidesToShow: 6,
-            slidesToScroll: 1,
-            prevArrow: '<div class="prev"><i class="far fa-arrow-left"></i></div>',
-            nextArrow: '<div class="next"><i class="far fa-arrow-right"></i></div>',
-            responsive: [
-                { breakpoint: 1200, settings: { slidesToShow: 4 } },
-                { breakpoint: 1024, settings: { slidesToShow: 3 } },
-                { breakpoint: 767, settings: { slidesToShow: 2 } },
-            ],
-        });
-
-        initSlick(".instagram-slider-two", {
-            dots: false,
-            arrows: false,
-            infinite: true,
-            speed: 800,
-            autoplay: true,
-            slidesToShow: 5,
-            slidesToScroll: 1,
-            prevArrow: '<div class="prev"><i class="far fa-arrow-left"></i></div>',
-            nextArrow: '<div class="next"><i class="far fa-arrow-right"></i></div>',
-            responsive: [
-                { breakpoint: 1200, settings: { slidesToShow: 4 } },
-                { breakpoint: 1024, settings: { slidesToShow: 3 } },
-                { breakpoint: 767, settings: { slidesToShow: 2 } },
-            ],
-        });
-    };
-
-    $(document).ready(function () {
-        console.log("DOCUMENT READY");
-        if (typeof window.initFoodixSliders === "function") {
-            window.initFoodixSliders();
-        }
-    });
     //======= Quantity Number js
 
     $(".quantity-down").on("click", function () {
