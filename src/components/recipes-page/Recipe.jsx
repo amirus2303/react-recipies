@@ -1,26 +1,29 @@
-const Recipe = () => {
+import { NavLink } from "react-router-dom";
+const Recipe = ({ recipe }) => {
+    console.log("recipe", recipe);
+    const{ id, name, image, rating, cookTimeMinutes } = recipe || {};
     return (
         <div className="col-xl-4 col-md-6 col-sm-12">
             <div className="menu-item style-four mb-30">
                 <div className="menu-thumbnail">
                     <img
-                        src="assets/images/product/product-1.jpg"
-                        alt="Image"
+                        src={image}
+                        alt={name}
                     />
                 </div>
                 <div className="menu-info">
                     <div className="menu-meta">
-                        <span className="price">
-                            <span className="currency">$</span>
-                            18.00
+                        <span className="price"><span style={{ color: "black", marginRight: "5px" }}>Cuisson </span>
+                            <span className="currency"></span>
+                            {cookTimeMinutes} min
                         </span>
                         <span className="rating">
                             <i className="fas fa-star"></i>
-                            <a href="#">4.7(375)</a>
+                            <a href="#">{rating}</a>
                         </span>
                     </div>
                     <h4 className="title">
-                        <a href="menu-details.html">Beefy Bourbon Bliss</a>
+                        <a href="menu-details.html">{name}</a>
                     </h4>
                     <ul className="check-list style-one">
                         <li>
@@ -32,9 +35,9 @@ const Recipe = () => {
                             Spicy Sauce
                         </li>
                     </ul>
-                    <a href="menu-details.html" className="theme-btn style-two">
-                        <i className="far fa-cart-plus"></i> Add to Cart
-                    </a>
+                    <NavLink to={`/recipes/${id}`} className="theme-btn style-two">
+                        <i className="fas fa-eye"></i> Voir la recette
+                    </NavLink>
                 </div>
             </div>
         </div>

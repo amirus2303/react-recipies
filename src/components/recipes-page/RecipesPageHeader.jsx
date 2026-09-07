@@ -1,4 +1,4 @@
-const RecipiesPageHeader = () => {
+const RecipesPageHeader = () => {
     return (
         <div className="row">
             <div className="col-lg-12">
@@ -14,4 +14,4 @@ const RecipiesPageHeader = () => {
         </div>
     );
 };
-export default RecipiesPageHeader;
+export default RecipesPageHeader;

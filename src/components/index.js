@@ -10,5 +10,5 @@ export {default as Video} from "./Home/Video.jsx";
 export {default as Gallery} from "./Home/Gallery.jsx";  
 export {default as Footer} from "./Footer.jsx";  
 export {default as PageBanner} from "./PageBanner.jsx";  
-export {default as RecipiesContainer} from "./recipies-page/RecipiesContainer.jsx";
+export {default as RecipesContainer} from "./recipes-page/RecipesContainer.jsx";
 

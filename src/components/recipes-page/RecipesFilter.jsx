@@ -1,4 +1,4 @@
-const RecipiesFilter = () => {
+const RecipesFilter = () => {
     return (
         <div className="row">
             <div className="col-lg-12">
@@ -46,4 +46,4 @@ const RecipiesFilter = () => {
         </div>
     );
 };
-export default RecipiesFilter;
+export default RecipesFilter;
